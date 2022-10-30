@@ -1,0 +1,1 @@
+RedirectMatch 302 ^/$ http://www.vechtdaltweewielers.nl/dist

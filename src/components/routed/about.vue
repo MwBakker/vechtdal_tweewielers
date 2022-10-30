@@ -1,0 +1,79 @@
+<template>
+    <div>
+      <div class="container">
+        <img src="../../assets/employers.jpg" alt="Joost en Michel">
+        <Transition name="slide-fade-left" appear>
+          <div id="overlay">
+            <div id="text">
+              <p>Vechtdal Tweewielers is sinds Mei 2022 gevestigd aan de Bruchterweg 21 te Hardenberg. Met deze vestiging werd een droom werkelijkheid voor Michel Schipper en Joost Brink</p>
+              <br><br>
+              <p>Michel en Joost, al eerder collega's van elkaar binnen de fietsenbranche, hebben hier hun kennis en kunde samengevoegd en dit pand (ooit bekend van Vasse koken en cadeau's) mogen openen. 
+                Te vinden binnen deze vestiging zijn onder andere elektrische- stads- en kinderfietsen. Daarnaast vindt u ook een selectie aan gebruikte fietsen. Voor de sportievelingen is er een ruime 
+                afdeling met mountainbikes en racefietsen.</p>
+            </div>
+          </div>
+        </Transition>
+      </div>
+  </div>
+</template> 
+  
+<script>
+export default {
+  name: "infoPage",
+};
+</script>
+
+<style scoped>
+.container {
+  position: relative;
+}
+
+.container img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+#overlay {
+  position: absolute;
+  width: 30%; height: 100%;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(18 18 18 / 0.75);
+}
+
+.slide-fade-left-enter-active {
+  transition: all 1.5s ease;
+}
+.slide-fade-left-leave-active {
+  transition: all 1s;
+}
+
+.slide-fade-left-enter-from,
+.slide-fade-left-leave-to {
+  transform: translateX(80%);
+  opacity: 0;
+}
+
+#text {
+  font-size: 20px;
+  margin: 25% 32px;
+  white-space: nowrap;
+}
+
+p { 
+  word-break: break-word;
+  white-space: normal;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px)  {
+  .container { 
+    height: 61vh;
+  }
+  #overlay { 
+    width: 100%;
+  }
+  #text p { 
+    font-size: 14px;
+  }
+}
+</style>
