@@ -139,23 +139,26 @@ ul {
   border-bottom: 2px solid #600026;
 }
 .sub-menu ul {
+  width: 90%;
   padding: 0 6px;
   float: left;
 }
-
 li.li-nav-subbed:hover > .sub-menu { 
   visibility: visible;
   opacity: 1;
 }
 
-.sub-menu-item { 
+.sub-menu-item {
+  display: flex;
+  margin: 48px;
+  justify-content: left;
+  align-items: center;
   overflow: hidden;
 }
 
 .sub-menu-item img { 
-  width: 36px;
-  height: 36px;
-  margin: 28px 11% 18px 5%;
+  width: 36px; height: 36px;
+  margin-right: 26px;
   float: left;
 }
 .sub-menu-item p {

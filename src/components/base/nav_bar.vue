@@ -153,7 +153,6 @@ li {
 #sub-title {
   margin-top: -7%;
 }
-
 .sub-menu {
   position: absolute;
   z-index: 1;
@@ -172,7 +171,6 @@ li {
   padding: 0 6px;
   float: left;
 }
-
 li.li-nav-subbed:hover > .sub-menu { 
   visibility: visible;
   opacity: 1;
