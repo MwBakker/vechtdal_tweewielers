@@ -1,6 +1,6 @@
 <template>
-  <navBar id='nav-bar'/>
-  <navBarMobile id="nav-bar-mobile" />
+  <navBarMobile v-if="windowWidth <= 800" id="nav-bar-mobile" />
+  <navBar v-if="windowWidth > 800" id='nav-bar'/>
   <div id="app-body">
     <router-view></router-view>
   </div>
@@ -19,6 +19,16 @@ export default {
     navBarMobile,
     footerSection
   },
+  data() {
+    return {
+        windowWidth: window.innerWidth
+    }
+  },
+  mounted() {
+    window.onresize = () => {
+        this.windowWidth = window.innerWidth
+    }
+  }
 };
 </script>
 
@@ -28,7 +38,7 @@ export default {
 }
 
 #app {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
@@ -46,6 +56,8 @@ export default {
 }
 
 #app-body{
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -53,27 +65,12 @@ export default {
   min-height: 6vh;
 }
 
-@media screen and (min-width: 320px) and (max-width: 768px)  {
-  #nav-bar {
-    display: none;
-  }
-  #nav-bar-mobile {
-    display: block;
-  }
+@media screen and (min-width: 320px) and (max-width: 801px)  {
   #body-app { 
     min-height: 57vh;
   }
   #background { 
     background-size: 100% 100%;
-  }
-}
-
-@media screen and (min-width: 768px)  {
-  #nav-bar {
-    display: block;
-  }
-  #nav-bar-mobile {
-    display: none;
   }
 }
 </style>

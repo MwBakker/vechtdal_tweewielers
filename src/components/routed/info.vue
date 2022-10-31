@@ -1,86 +1,76 @@
 <template>
-  <div id="container-blocks" >
-    <div id="head-block">
-      <Transition name="slide-fade-right" appear>
-        <div class="side-block" id="dates-block">
-          <div id='dates'>
-            <DateTime day="Maandag"
-              timeFirst="Gesloten" />
-            <DateTime day="Dinsdag"
-              timeFirst="08:30 - 12:30" 
-              timeLast ="13:00 - 18:00" />
-            <DateTime day="Woensdag"
-              timeFirst="08:30 - 12:30" 
-              timeLast ="13:00 - 18:00" />
-            <DateTime day="Donderdag"
-              timeFirst="08:30 - 12:30" 
-              timeLast ="13:00 - 21:00" />
-            <DateTime day="Vrijdag"
-              timeFirst="08:30 - 12:30" 
-              timeLast ="13:00 - 21:00" />
-            <DateTime day="Zaterdag"
-              timeFirst="08:30 - 12:30" 
-              timeLast ="13:00 - 17:00" />
+  <div id="top-column">
+    <Transition name="slide-fade-right" appear>
+      <div class="side-block" id="dates-block">
+        <div id='dates'>
+          <DateTime day="Maandag"
+            timeFirst="Gesloten" />
+          <DateTime day="Dinsdag"
+            timeFirst="08:30 - 12:30" 
+            timeLast ="13:00 - 18:00" />
+          <DateTime day="Woensdag"
+            timeFirst="08:30 - 12:30" 
+            timeLast ="13:00 - 18:00" />
+          <DateTime day="Donderdag"
+            timeFirst="08:30 - 12:30" 
+            timeLast ="13:00 - 21:00" />
+          <DateTime day="Vrijdag"
+            timeFirst="08:30 - 12:30" 
+            timeLast ="13:00 - 21:00" />
+          <DateTime day="Zaterdag"
+            timeFirst="08:30 - 12:30" 
+            timeLast ="13:00 - 17:00" />
+        </div>
+      </div>
+    </Transition>
+    <Transition name="slide-fade-left" appear>
+      <div class="side-block" id="contact-form-block">
+        <div id="contact-form">
+          <h2>Contactformulier</h2>
+          <div class="contact-form-field">
+            <p>Uw naam</p>
+            <input v-model="name">
+          </div>
+          <div class="contact-form-field">
+            <p>Uw email adres</p>
+            <input v-model="email">
+          </div>
+          <div class="contact-form-field">
+            <p>Uw telefoonnummer (optioneel)</p>
+            <input v-model="phone">
+          </div>
+          <div class="contact-form-field">
+            <p>Onderwerp</p>
+            <input v-model="subject">
+          </div>
+          <div class="contact-form-field">
+            <p>Beschrijving</p>
+            <textarea v-model="description" cols="40" rows="5"></textarea>
+          </div>
+          <div class="contact-form-field">
+            <button>Verzenden</button>
           </div>
         </div>
-      </Transition>
-      <Transition name="slide-fade-left" appear>
-        <div class="side-block" id="contact-form-block">
-          <div class="side-block-content">
-            <h2>Contactformulier</h2>
-            <!-- <p>Voor vragen of het maken van een afspraak kunt u het onderstaande contact formulier invullen. U kunt ons tevens ook bellen op ons telefoonnummer.</p> -->
-            <div class="contact-form-field">
-              <p>Uw naam</p>
-              <input v-model="name">
-            </div>
-            <div class="contact-form-field">
-              <p>Uw email adres</p>
-              <input v-model="email">
-            </div>
-            <div class="contact-form-field">
-              <p>Uw telefoonnummer (optioneel)</p>
-              <input v-model="phone">
-            </div>
-            <div class="contact-form-field">
-              <p>Onderwerp</p>
-              <input v-model="subject">
-            </div>
-            <div class="contact-form-field">
-              <p>Beschrijving</p>
-              <textarea v-model="description" cols="40" rows="5"></textarea>
-            </div>
-            <div class="contact-form-field">
-              <button>Verzenden</button>
-            </div>
-          </div>
-        </div>
-      </Transition>
-      <Transition name="slide-fade-up" appear>
-        <div class="side-block" id="side-block-bottom">
-          <div class="side-block-content">
-            <div id="address-block">
-              <p>Bruchterweg 21</p>
-              <p>7772 BD</p>
-              <p>Hardenberg</p>
-            </div>
-            <div id='contact-block'>
-              <div class="info_row">
-                <img alt="phone" src="../../assets//icons/telephone.png" width="18" height="18">
-                <p>0523 225 104</p>
-              </div>
-              <div class="info_row">
-                <img alt="mail" src="../../assets/icons/mail.png" width="18" height="18">
-                <p>info@vechtdaltweewielers.nl</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Transition>
-    </div>
-    <div id="bottom-block">
-      <customMap />
-    </div>
+      </div>
+    </Transition>
   </div>
+  <Transition name="slide-fade-up" appear>
+    <div id="middle-column">
+      <div id="address"> 
+        <p>Bruchterweg 21</p>
+        <p>7772 BD, Hardenberg</p>
+      </div>
+      <div id="contact">
+        <div class="info-row">
+          <p id="phone-nr">0523 225 104</p>
+        </div>
+        <div class="info-row">
+          <p>info@vechtdaltweewielers.nl</p>
+        </div>
+      </div>
+    </div>
+  </Transition>
+  <customMap id="bottom-column" />
 </template> 
   
 <script>
@@ -95,32 +85,23 @@ export default {
 
 <style scoped>
 
-#head-block { 
-  overflow: hidden;
-  height: 60vh;
+#top-column { 
+  flex: 5; 
 }
-
+#top-column, #middle-column { 
+  display: flex;
+  flex-direction: row;
+}
 .side-block { 
-  height: 78%;
-  width: 49%;
+  flex: 1;
+}
+.side-block, #middle-column { 
   margin: 4px .5%;
   border-radius: 25px;
   background: rgb(2 2 2 / 42%);
-  float: left;
   position: relative;
 }
-#side-block-bottom { 
-  width: 100%;
-  height: 8vh;
-  overflow: hidden;
-}
-#address-block { 
-  float: left;
-}
-#contact-block { 
-  float: right;
-}
-.side-block-content, #dates { 
+#contact-form, #dates { 
   width: 100%;
   margin: 0;
   position: absolute;
@@ -161,8 +142,38 @@ textarea {
   border-radius: 6px;
 }
 
-#bottom-block {
-  height: 25vh;
+#middle-column { 
+  justify-content: space-between;
+  padding: 0 8px;
+}
+#address {
+  width: 50%;
+}
+#address p { 
+  text-align: left;
+}
+#contact p {
+  text-align: right;
+}
+#middle-column p { 
+  margin: 8px;
+}
+#info-content {
+  height: 6vh;
+  display: flex;
+  flex-direction: row;
+}
+.info-row img { 
+  margin-right: 5%;
+  float: left;
+}
+.info-row p { 
+  margin: 0;
+}
+
+#bottom-column {
+  margin-top: 4px;
+  height: 27vh;
 }
 
 p { 
@@ -205,24 +216,27 @@ button {
   opacity: 0;
 }
 
-@media screen and (min-width: 320px) and (max-width: 800px)  {
-  #head-block { 
-    height: 110vh;
+@media screen and (min-width: 320px) and (max-width: 801px)  {
+  #dates { 
+    font-size: 14px;
   }
   .side-block { 
     width: 95%;
-    height: 49%;
+    height: 52vh;
     margin: 0 2.5% 8px 2.5%;
   }
-  #dates-block { 
-    height: 50vh
-  }
   #contact-form-block { 
-    height: 58.5vh;
+    height: 66vh;
   }
   .contact-form-field {
     width: 92.5%;
     margin: 12px 2.5%;
+  }
+  #top-column { 
+    display: block;
+  }
+  #middle-column p {
+    font-size: 12px;
   }
 }
 </style>

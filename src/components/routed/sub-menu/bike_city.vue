@@ -1,61 +1,61 @@
 <template>
-  <div>
-    <div class="container">
-      <a href="https://www.advancedebike.nl"> 
-        <img src="../../../assets/advanced-bikes.jpg" alt="Joost en Michel">
-        <Transition name="slide-fade-right" appear>
-          <div id="overlay">
-            <div id="text">
-              <h1>Advanced E-bikes</h1>
-              <p>Altijd op zoek naar nieuwe doelen - en blijven daarbij trouw aan hun principes. In 2011 gestart met een duidelijk beeld voor ogen. 
-                  Dat doel is in alle jaren behaald, ondanks dat de markt drastisch veranderde en ze inmiddels actief zijn in zes Europese landen. Juist het vasthouden aan deze visie is 
-                  het meest bepalend voor het succes van dit type e-bike.</p>
-            </div>
-          </div>
-        </Transition>
-      </a>
-    </div>
+  <div class="row">
+    <Transition name="slide-fade-right" appear>
+      <div id="overlay">
+        <div id="text">
+          <h1>Burgers</h1>
+          <p>Het is het jaar 1869. Rijtuigsmid Henricus Burgers (1843-1903) koopt een Engelse vélocipède. Hij besluit deze fiets na te maken 
+              en in hetzelfde jaar opent hij in Deventer de eerste fietsfabriek van Nederland. Al snel volgden er meerdere tweewielers. 
+              Het bedrijf en merk Burgers groeit en in 1892 volgt de tweede fabriek aan Achter den Broederen ook in Deventer.Burgers bleef zich door de jaren heen meer en meer ontwikkelen. In 1897 kwam de fabrikant met een cardanfiets. 
+              Een fiets met asaandrijving en dus zonder ketting. Burgers was met de cardanfiets de eerste ter wereld die deze op de markt bracht.
+              In 1931 werd een rijwiel met hulpmotor geintroduceert. Ondertussen waren er ook alweer 2 nieuwe fabrieken bij gekomen, ook in Roermond.</p>
+          <a href="https://burgers.nl">Bezoek de website</a>
+        </div>
+      </div>
+    </Transition>
+    <div class="rowImg"></div>
   </div>
 </template> 
 
 <script>
 export default {
-  name: "bikeElectricPage",
+  name: "bikeCityPage",
 };
 </script>
 
 <style scoped>
-.container {
+
+.row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
   position: relative;
-  height: 86vh;
-  border-bottom: 1px solid #121212;
 }
 
-.container a {
+.row a {
+  position: absolute;
+  margin-top: 32px;
   color: inherit; 
-  text-decoration: none; /* Fix to make div clickable in IE */
 }
 
-.container img {
-  float: right;
-  width: 60%; height: 100%;
+.rowImg {
+  flex: 2;
   object-fit: cover;
+  background: url(../../../assets/burgers-bikes.jpg);
+  background-size: 100% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0)), linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,0));
+  -webkit-mask-size: 100% 50%; 
+  -webkit-mask-position: left top, left center; 
 }
 
 #overlay {
-  background: linear-gradient(to right, rgb(18 18 18 / 1), rgb(18 18 18 / 1), rgb(18 18 18 / 1), rgb(18 18 18 / 0.75), rgb(18 18 18 / 0));
-  position: absolute;
-  width: 100%; height: 100%;
-  bottom: 0;
-  top: 0;
-  left: 0;
-}
-#text { 
-  width: 32.5%;
+  flex: 1;
 }
 
 .slide-fade-right-enter-active {
-  transition: all 1.5s ease;
+  transition: all 1s ease;
 }
 .slide-fade-right-leave-active {
   transition: all 1s;
@@ -75,8 +75,17 @@ export default {
 }
 
 p { 
-  margin: 15% 0;
   word-break: break-word;
   white-space: normal;
 } 
+
+@media screen and (min-width: 320px) and (max-width: 800px)  {
+    #overlay, .rowImg {
+      flex: 1;
+    }
+    #text { 
+      font-size: 11px;
+      margin: 0 16px;
+    }
+  }
 </style>

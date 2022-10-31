@@ -9,15 +9,15 @@
           </li>
           <li class='li-nav' @click="this.$router.push('/')" @mouseover="moveToItem($event)" @mouseleave="moveBack()"><p>HOME</p></li>
           <li class='li-nav-subbed' @mouseover="moveToItem($event)" @mouseleave="moveBack()" ref="li_sub"><p id="sub-title">FIETSEN</p>
-          <div class="sub-menu" :style="{ left: leftPos+'px', 
-                                                backgroundImage: 'linear-gradient(to right, rgb(18 18 18 / 1), rgb(18 18 18 / 0.9), rgb(18 18 18 / 0.9), rgb(18 18 18 / 0.5), rgb(18 18 18 / 0)), url(' + require('../../assets/bike-'+subMenuImgSrc+'.jpg') + ')' } ">
-            <ul>
-              <li @click="this.$router.push('/fietsen/elektrisch')" @mouseover="changePic('electric')"><div  class='sub-menu-item'><img src="../../assets/icons/bike-electric.png"><p>ELEKTRISCH</p></div></li>
-              <li @click="this.$router.push('/fietsen/stad')" @mouseover="changePic('city')"><div class='sub-menu-item'><img src="../../assets/icons/bike.png"><p>STAD</p></div></li>
-              <li @click="this.$router.push('/fietsen/sportief')" @mouseover="changePic('sport')"><div class='sub-menu-item'><img src="../../assets/icons/bike-sport.png"><p>SPORTIEF</p></div></li>
-              <li @click="this.$router.push('/fietsen/bedrijfs-gerelateerd')" @mouseover="changePic('business')"><div class='sub-menu-item'><img src="../../assets/icons/bike.png"><p>BEDRIJFSGERELATEERD</p></div></li>
-            </ul>
-          </div>
+            <div class="sub-menu" :style="{ left: leftPos+'px', 
+                                                  backgroundImage: 'linear-gradient(to right, rgb(18 18 18 / 1), rgb(18 18 18 / 0.99), rgb(18 18 18 / 0.8), rgb(18 18 18 / 0.5), rgb(18 18 18 / 0)), url(' + require('../../assets/bike-'+subMenuImgSrc+'.jpg') + ')' } ">
+              <ul>
+                <li @click="this.$router.push('/fietsen/elektrisch')" @mouseover="changePic('electric')"><div  class='sub-menu-item'><img src="../../assets/icons/bike-electric.png"><p>ELEKTRISCH</p></div></li>
+                <li @click="this.$router.push('/fietsen/stad')" @mouseover="changePic('city')"><div class='sub-menu-item'><img src="../../assets/icons/bike.png"><p>STAD</p></div></li>
+                <li @click="this.$router.push('/fietsen/sportief')" @mouseover="changePic('sport')"><div class='sub-menu-item'><img src="../../assets/icons/bike-sport.png"><p>SPORTIEF</p></div></li>
+                <li @click="this.$router.push('/fietsen/bedrijfs-gerelateerd')" @mouseover="changePic('business')"><div class='sub-menu-item'><img src="../../assets/icons/bike.png"><p>BEDRIJFSGERELATEERD</p></div></li>
+              </ul>
+            </div>
           </li>
           <li class='li-nav' @click="this.$router.push('/onderhoud_en_reparatie')" @mouseover="moveToItem($event)" @mouseleave="moveBack()"><p>ONDERHOUD & REPARATIE</p></li>
           <li class='li-nav' @click="this.$router.push('/verhuur')" @mouseover="moveToItem($event)" @mouseleave="moveBack()"><p>VERHUUR</p></li>
@@ -122,7 +122,7 @@ li {
 }
 
 #li-logo { 
-  margin-right: 2.5%;
+  margin-right: 1%;
 }
 #logo-parts { 
   margin: 19px 0 0 12px;
@@ -150,9 +150,6 @@ li {
 .li-nav-subbed { 
   line-height: 31px;
 }
-.li-nav-subbed p { 
-  margin-top: 32px;
-}
 #sub-title {
   margin-top: -7%;
 }
@@ -163,25 +160,17 @@ li {
   right: 0;
   background-position: center;
   background-size: 100% auto;
-  border-radius: 0px 0px 10px 60px;
+  border-radius: 0 0 0 60px;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
   border-left: 5px solid #600026;
   border-bottom: 5px solid #600026;
 }
-
 .sub-menu ul {
   width: 60%;
-  float: left;
-}
-#img-radient {
-  width: 40%;
-  float: left;
-}
-
-.sub-menu ul { 
   padding: 0 6px;
+  float: left;
 }
 
 li.li-nav-subbed:hover > .sub-menu { 
@@ -189,14 +178,17 @@ li.li-nav-subbed:hover > .sub-menu {
   opacity: 1;
 }
 
-.sub-menu-item { 
+.sub-menu-item {
+  display: flex;
+  margin: 48px;
+  justify-content: left;
+  align-items: center;
   overflow: hidden;
 }
 
 .sub-menu-item img { 
-  width: 36px;
-  height: 36px;
-  margin: 28px 11% 18px 5%;
+  width: 36px; height: 36px;
+  margin-right: 26px;
   float: left;
 }
 .sub-menu-item p {
@@ -239,13 +231,19 @@ p {
 }
 
 @media screen and (min-width: 800px) and (max-width: 1024px)  {
-  li p, #info-row p { 
+  li p, .sub-menu { 
     font-size: 12px;
+  }
+  #sub-title {
+    margin-top: -16%;
   }
   .li-nav, .li-nav-subbed { 
     margin: 36px 1.5% 0 1.5%;
   }
-  .sub-menu-item img { 
+  #li-info { 
+    display: none;
+  }
+  /* .sub-menu-item img { 
     height: 24px;
     margin: 14px 6% 18px 3%;
     float: left;
@@ -255,19 +253,32 @@ p {
   }
   #li-info { 
     margin: 35px 18px 0 0;
-  }
+  }  */
 }
-
-@media screen and (min-width: 1024px) and (max-width: 1366px)  {
-  li p { 
-    font-size: 12px;
-  }
-  #info-row { 
-    float: left;
+@media screen and (min-width: 1024px) and (max-width: 1280px)  {
+  li p, .sub-menu { 
+    font-size: 14px;
   }
   #sub-title {
-    margin-top: -16%;
+    margin-top: -12%;
   }
+  .li-nav, .li-nav-subbed { 
+    margin: 36px 1.5% 0 1.5%;
+  }
+  #li-info { 
+    display: block;
+  }
+  /* .sub-menu-item img { 
+    height: 24px;
+    margin: 14px 6% 18px 3%;
+    float: left;
+  }
+  .sub-menu-item p { 
+    font-size: 12px;
+  }
+  #li-info { 
+    margin: 35px 18px 0 0;
+  }  */
 }
 </style>
 

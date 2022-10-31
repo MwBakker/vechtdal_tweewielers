@@ -1,19 +1,17 @@
 <template>
-    <div>
-      <div class="container">
-        <img src="../../assets/employers.jpg" alt="Joost en Michel">
-        <Transition name="slide-fade-left" appear>
-          <div id="overlay">
-            <div id="text">
-              <p>Vechtdal Tweewielers is sinds Mei 2022 gevestigd aan de Bruchterweg 21 te Hardenberg. Met deze vestiging werd een droom werkelijkheid voor Michel Schipper en Joost Brink</p>
-              <br><br>
-              <p>Michel en Joost, al eerder collega's van elkaar binnen de fietsenbranche, hebben hier hun kennis en kunde samengevoegd en dit pand (ooit bekend van Vasse koken en cadeau's) mogen openen. 
-                Te vinden binnen deze vestiging zijn onder andere elektrische- stads- en kinderfietsen. Daarnaast vindt u ook een selectie aan gebruikte fietsen. Voor de sportievelingen is er een ruime 
-                afdeling met mountainbikes en racefietsen.</p>
-            </div>
-          </div>
-        </Transition>
+  <div class="container">
+    <img src="../../assets/employers.jpg" alt="Joost en Michel">
+    <Transition name="slide-fade-left" appear>
+      <div id="overlay">
+        <div id="text">
+          <p>Vechtdal Tweewielers is sinds Mei 2022 gevestigd aan de Bruchterweg 21 te Hardenberg. Met deze vestiging werd een droom werkelijkheid voor Michel Schipper en Joost Brink</p>
+          <br><br>
+          <p>Michel en Joost, al eerder collega's van elkaar binnen de fietsenbranche, hebben hier hun kennis en kunde samengevoegd en dit pand (ooit bekend van Vasse koken en cadeau's) mogen openen. 
+            Te vinden binnen deze vestiging zijn onder andere elektrische- stads- en kinderfietsen. Daarnaast vindt u ook een selectie aan gebruikte fietsen. Voor de sportievelingen is er een ruime 
+            afdeling met mountainbikes en racefietsen.</p>
+        </div>
       </div>
+    </Transition>
   </div>
 </template> 
   
@@ -25,11 +23,15 @@ export default {
 
 <style scoped>
 .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
 .container img {
-  width: 100%; height: 100%;
+  flex: 1;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -65,7 +67,7 @@ p {
   white-space: normal;
 }
 
-@media screen and (min-width: 320px) and (max-width: 768px)  {
+@media screen and (min-width: 320px) and (max-width: 800px)  {
   .container { 
     height: 61vh;
   }

@@ -1,52 +1,51 @@
 <template>
-    <div id="content">
-        <div id="home-img">
-            <img src="../../assets/home.jpg" alt="Zaak van binnen">
-            <Transition name="slide-fade-up" appear>
-                <div id="overlay">
-                    <div id="text">
-                        <h1>Welkom bij Vechtdal Tweewielers</h1>
-                    </div>
+    <div id="home-img">
+        <img src="../../assets/home.jpg" alt="Zaak van binnen">
+        <Transition name="slide-fade-up" appear>
+            <div id="overlay">
+                <div id="header-text">
+                    <h1>Welkom bij Vechtdal Tweewielers</h1>
+                    <!-- <h2> - Deze website is nog in aanbouw - </h2> -->
                 </div>
-            </Transition>
-        </div>
-        <div id="vecht-info">
-            <Transition name="slide-fade-right" appear>
-                <div id="vecht-info-text-block">
-                    <div class="info-text">
-                        <p>Vechtdal: bekend als gebied om heerlijk te kunnen fietsen. Door dit gebied fietsen is een perfecte manier om te relaxen en tevens juist weer op te laden.
-                            Om dit ontspannen gevoel te kunnen behouden dient uw fiets zelf u geen zorgen te geven. Bij ons bent u verzekerd dat u met de juiste fiets zorgeloos op pad kunt. 
-                            Kijk gerust naar ons aanbod of kijk naar wat wij bieden als erkende onderhoudsmonteurs. </p>
-                    </div>
-                </div>
-            </Transition>
-            <Transition name="slide-fade-left" appear>
-                <img src="../../assets/vechtdal.jpg" alt="Vecht">
-            </Transition>
-        </div>
-        <div id="store-items-block">
-            <CardBottomOverlay @click="this.$router.push('/fietsen/elektrisch')" class="card" imgSrc="bike-electric" title="Elektrisch" />
-            <CardBottomOverlay @click="this.$router.push('/fietsen/stad')" class="card" imgSrc="bike-city" title="Stad" />
-            <CardBottomOverlay @click="this.$router.push('/fietsen/sportief')" class="card" imgSrc="bike-sport" title="Sportief" />
-            <CardBottomOverlay @click="this.$router.push('/fietsen/bedrijfs-gerelateerd')" class="card" imgSrc="bike-business" title="Bedrijfs-gerelateerd" />
-        </div>
-        <div id="fixed-bg">
-            <div id="fixed-bg-text-block-overlay">
-                <div class="info-text">
-                    <h2>Onderhoud en Reparatie</h2>
-                    <br class="breakline">
-                    <p>Zorgeloos blijven fietsen? Uw fiets is bij ons in goede handen. Wij zijn erkende monteurs met een ruime beschikbaarheid aan onderdelen.</p>
-                </div>
-            </div>            
-        </div>
-        <div id="rental-info">
-            <img src="../../assets/bike-rental.jpg" alt="Verhuur">
+            </div>
+        </Transition>
+    </div>
+    <div id="vecht-info">
+        <Transition name="slide-fade-right" appear>
             <div id="vecht-info-text-block">
                 <div class="info-text">
-                    <h2>Verhuur</h2>
-                    <br class="breakline">
-                    <p>Mocht u de Vechtdal per fiets willen ontdekken, echter beschikt u niet zelf over een fiets? Geen probleem: u kunt bij ons een fiets huren.</p>
+                    <p>Vechtdal: bekend als gebied om heerlijk te kunnen fietsen. Door dit gebied fietsen is een perfecte manier om te relaxen en tevens juist weer op te laden.
+                        Om dit ontspannen gevoel te kunnen behouden dient uw fiets zelf u geen zorgen te geven. Bij ons bent u verzekerd dat u met de juiste fiets zorgeloos op pad kunt. 
+                        Kijk gerust naar ons aanbod of kijk naar wat wij bieden als erkende onderhoudsmonteurs. </p>
                 </div>
+            </div>
+        </Transition>
+        <Transition name="slide-fade-left" appear>
+            <img src="../../assets/vechtdal.jpg" alt="Vecht">
+        </Transition>
+    </div>
+    <div id="store-items-block">
+        <CardBottomOverlay @click="this.$router.push('/fietsen/elektrisch')" class="card" imgSrc="bike-electric" title="Elektrisch" />
+        <CardBottomOverlay @click="this.$router.push('/fietsen/stad')" class="card" imgSrc="bike-city" title="Stad" />
+        <CardBottomOverlay @click="this.$router.push('/fietsen/sportief')" class="card" imgSrc="bike-sport" title="Sportief" />
+        <CardBottomOverlay @click="this.$router.push('/fietsen/bedrijfs-gerelateerd')" class="card" imgSrc="bike-business" title="Bedrijfs-gerelateerd" />
+    </div>
+    <div id="fixed-bg">
+        <div id="fixed-bg-text-block-overlay">
+            <div class="info-text">
+                <h2>Onderhoud en Reparatie</h2>
+                <br class="breakline">
+                <p>Zorgeloos blijven fietsen? Uw fiets is bij ons in goede handen. Wij zijn erkende monteurs met een ruime beschikbaarheid aan onderdelen.</p>
+            </div>
+        </div>            
+    </div>
+    <div id="rental-info">
+        <img src="../../assets/bike-rental.jpg" alt="Verhuur">
+        <div id="vecht-info-text-block">
+            <div class="info-text">
+                <h2>Verhuur</h2>
+                <br class="breakline">
+                <p>Mocht u de Vechtdal per fiets willen ontdekken, echter beschikt u niet zelf over een fiets? Geen probleem: u kunt bij ons een fiets huren.</p>
             </div>
         </div>
     </div>
@@ -67,6 +66,20 @@
 
 #home-img {
     position: relative;
+}
+
+#header-text {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+}
+#header-text h1 { 
+    margin-left: 5%;
+    flex: 2
+}
+#header-text h2 { 
+    color:aliceblue;
+    flex: 1
 }
 
 #home-img img {
@@ -113,6 +126,7 @@
 #vecht-info img, #rental-info img { 
     width: 40%; height: 100%;
     float: left;
+    object-fit: cover;
 }
 
 #store-items-block { 
