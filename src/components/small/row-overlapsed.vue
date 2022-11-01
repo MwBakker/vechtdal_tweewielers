@@ -79,6 +79,9 @@
   } 
 
   @media screen and (min-width: 320px) and (max-width: 800px)  {
+    .row {
+      min-height: 50vh;
+    }
     #overlay, .rowImg {
       flex: 1;
     }

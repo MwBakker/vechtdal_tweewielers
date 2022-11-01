@@ -75,7 +75,7 @@ p {
     width: 100%;
   }
   #text p { 
-    font-size: 14px;
+    font-size: 11px;
   }
 }
 </style>

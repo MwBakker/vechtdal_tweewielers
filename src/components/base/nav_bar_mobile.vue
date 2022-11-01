@@ -94,7 +94,7 @@ ul {
 }
 
 #li-logo { 
-  margin-right: 2.5%;
+  margin-bottom: 8px;
 }
 #logo-parts {
   width: 50%;
@@ -115,10 +115,9 @@ ul {
 }
 #logo-part-3 { 
   position: absolute;
-  left: 25%; 
-  bottom: 5px;
-  height: 18px;
-  transition: margin-left 0.5s; 
+  left: 23%; 
+  bottom: 1px;
+  height: 22px;
 }
 .li-nav-subbed { 
   line-height: 31px;
@@ -169,36 +168,36 @@ li.li-nav-subbed:hover > .sub-menu {
   float: none;
 }
 
-  .li-nav-icon { 
-    margin: 3px 20px 3px 0;
-  }
+.li-nav-icon { 
+  margin: 3px 20px 3px 0;
+}
 
-  li p { 
-    font-size: 18px;
-    margin: 0;
-  }
+li p { 
+  font-size: 18px;
+  margin: 0;
+}
 
-  p { 
-    font-style: oblique;
-    font-size: 14px;
-    color: white;
-  }
+p { 
+  font-style: oblique;
+  font-size: 14px;
+  color: white;
+}
 
-  #li-info {
-    float: right;
-    margin-right: 26px;
-  }
+#li-info {
+  float: right;
+  margin-right: 26px;
+}
 
-  #info-row { 
-    float: right;
-    overflow: hidden;
-  }
+#info-row { 
+  float: right;
+  overflow: hidden;
+}
 
-  #phone-icon { 
-    margin: 0 8px;
-    height: 14px;
-  }
-  #phone-nr { 
-    font-size: 14px;
-  }
+#phone-icon { 
+  margin: 0 8px;
+  height: 14px;
+}
+#phone-nr { 
+  font-size: 14px;
+}
 </style>  

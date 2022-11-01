@@ -74,7 +74,7 @@
     flex-direction: row;
 }
 #header-text h1 { 
-    margin-left: 5%;
+    margin-left: 4%;
     flex: 2
 }
 #header-text h2 { 
@@ -90,10 +90,10 @@
 }
 #overlay {
     position: absolute;
-    width: 100%; height: 20%;
+    width: 100%; height: 19%;
     bottom: 0;
     right: 0;
-    background-color: rgb(18 18 18 / 0.825);
+    background-color: rgb(18 18 18 / 0.85);
 }
 #vecht-info, #rental-info {
     height: 36vh;
