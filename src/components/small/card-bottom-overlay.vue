@@ -1,9 +1,9 @@
 <template>
    <div class="card">
         <img :src="require(`../../assets/${imgSrc}.jpg`)" alt={{title}}>
-            <div class="text">
-                <p>{{title}}</p>
-            </div>
+        <div class="text">
+            <p>{{title}}</p>
+        </div>
     </div>
 </template>
 
@@ -35,13 +35,16 @@ export default {
     height: 80%; 
     object-fit: cover;
 }
+#text {
+    height: 20%; 
+}
 
 @media screen and (min-width: 320px) and (max-width: 801px)  {
-  #text p { 
+    .card img { 
+        height: 85%;
+    }
+  .text p { 
     font-size: 13px;
-  }
-  .card img { 
-    height: 85%;
   }
 }
 </style>

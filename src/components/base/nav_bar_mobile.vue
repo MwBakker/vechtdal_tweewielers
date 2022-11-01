@@ -138,7 +138,6 @@ ul {
   border-bottom: 2px solid #600026;
 }
 .sub-menu ul {
-  width: 90%;
   padding: 0 6px;
   float: left;
 }

@@ -74,6 +74,9 @@ p {
   #overlay { 
     width: 100%;
   }
+  #text { 
+    margin: 50% 16px;
+  }
   #text p { 
     font-size: 11px;
   }
