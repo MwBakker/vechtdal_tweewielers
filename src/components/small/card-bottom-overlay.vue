@@ -36,15 +36,17 @@ export default {
     object-fit: cover;
 }
 #text {
-    height: 20%; 
+    width: 100%; 
+    height: 80%; 
+    object-fit: cover;
 }
 
 @media screen and (min-width: 320px) and (max-width: 801px)  {
-    .card img { 
-        height: 85%;
-    }
   .text p { 
     font-size: 13px;
+  }
+  .card img { 
+    height: 85%;
   }
 }
 </style>

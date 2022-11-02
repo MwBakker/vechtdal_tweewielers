@@ -224,13 +224,13 @@ h1 {
         font-size: 11.5px;
     }
     #store-items-block { 
-        height: 76vh;
+        height: 73vh;
     }
     #fixed-bg {
         margin: 0;
     }
     .card{ 
-        margin: 8px 1%;
+        margin: 0 1% 4px 1%;
         width: 48%;
     }
     .breakline { 

@@ -35,7 +35,8 @@
   
   .rowImg {
     min-height: 42vh;
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0)), linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,0));
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0)), 
+                        linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,0));
     -webkit-mask-size: 100% 50%; 
     -webkit-mask-position: left top, left center; 
     flex: 5;
@@ -80,16 +81,22 @@
 
   @media screen and (min-width: 320px) and (max-width: 800px)  {
     .row {
-      min-height: 50vh;
+      flex-direction: column;
     }
-    #overlay, .rowImg {
-      flex: 1;
-    }
-    #overlay {  
+    #overlay {
       padding: 0 16px;
     }
     #text { 
       font-size: 11px;
+    }
+    #text a {
+      position: initial;
+    }
+    .rowImg { 
+      min-height: 23vh;
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)), 
+                          linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0));
+      -webkit-mask-size: 100% 100%; 
     }
   }
 </style>

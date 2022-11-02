@@ -148,7 +148,7 @@ li.li-nav-subbed:hover > .sub-menu {
 
 .sub-menu-item {
   display: flex;
-  margin: 48px;
+  margin: 28px;
   justify-content: left;
   align-items: center;
   overflow: hidden;
@@ -156,11 +156,11 @@ li.li-nav-subbed:hover > .sub-menu {
 
 .sub-menu-item img { 
   width: 36px; height: 36px;
-  margin-right: 26px;
+  margin-right: 32px;
   float: left;
 }
 .sub-menu-item p {
-  font-size: 16px;
+  font-size: 14px;
   float: left;
 }
 .sub-menu ul li { 
