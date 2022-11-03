@@ -2,9 +2,7 @@
     <nav id="nav-bar-mobile">
       <div id="nav-body">
         <div id="li-logo" @click="redirect('home')" >
-            <div id="logo-parts" ref="logo_parts">
-                <img id='logo-part-1' src="../../assets/logo_part_1.png">
-            </div>
+          <img id='logo-part-1' src="../../assets/logo_part_1.png">
         </div>
         <div id="lines">
           <div id="logo-parts-bottom">
@@ -89,12 +87,7 @@ ul {
 }
 
 #li-logo { 
-  margin-bottom: 8px;
-}
-#logo-parts {
-  width: 50%;
-  margin: auto; 
-  height: 5vh;
+  padding-top: 8px;
 }
 #logo-part-1 { 
   margin: auto;
