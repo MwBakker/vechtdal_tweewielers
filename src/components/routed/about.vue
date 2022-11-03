@@ -36,6 +36,9 @@ export default {
 }
 
 #overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 30%; height: 100%;
   bottom: 0;

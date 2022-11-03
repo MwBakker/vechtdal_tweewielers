@@ -31,8 +31,10 @@
           </li>
       </ul>
       <div id="lines">
-        <img id='logo-part-2' src="../../assets/logo_part_2.png">
-        <img id='logo-part-3' :style="{ marginLeft: bikeMovement + 'px' }" src="../../assets/logo_part_3.png">
+        <div id="logo-parts-bottom">
+          <img id='logo-part-2' src="../../assets/logo_part_2.png">
+          <img id='logo-part-3' :style="{ marginLeft: bikeMovement + 'px' }" src="../../assets/logo_part_3.png">
+        </div>
         <hr id="line-yellow" />
         <hr id="line-orange"/>
         <hr id="line-pink" />
@@ -48,7 +50,7 @@ export default {
   data(){
     return {
       upHere: false,
-      bikeMovement: 150,
+      bikeMovement: 0,
       leftPos: 0,
       subMenuImgSrc: 'electric'
     }
@@ -58,10 +60,10 @@ export default {
       const element = e.target;
       const elDimensions = element.getBoundingClientRect();
       const logoWidth = this.$refs.logo_parts.getBoundingClientRect().width;
-      this.bikeMovement = elDimensions.right - (elDimensions.width / 2) - logoWidth - (window.innerWidth * 0.0175) + 200;
+      this.bikeMovement = elDimensions.right - (elDimensions.width / 2) - logoWidth + 10;
     },
     moveBack() {
-      this.bikeMovement = 150;
+      this.bikeMovement = 0;
     },
     changePic(src) {
       this.subMenuImgSrc = src;
@@ -97,19 +99,21 @@ ul {
   position: relative;
 }
 #lines hr {
+  border-width: 3px;
+  border-style: solid;
   margin: 0;
 }
 #line-yellow { 
-  border: 3px solid #ff8647;
+  border: #ff8647;
 }
 #line-orange { 
-  border: 3px solid #ff5c49;
+  border: #ff5c49;
 }
 #line-pink { 
-  border: 3px solid #d61a67;
+  border: #d61a67;
 }
 #line-purple { 
-  border: 3px solid #600026;
+  border: #600026;
 }
 
 li {
@@ -132,17 +136,15 @@ li {
   margin-bottom: 5px;
   height: 35px;
 }
-#logo-part-2 { 
+#logo-parts-bottom{
   position: absolute;
-  left: 0; 
-  bottom: 1px;
-  height: 22px;
-  clear: both;
+}
+#logo-part-2 { 
+  height: 24px;
 }
 #logo-part-3 { 
   position: absolute;
-  left: 0; 
-  bottom: 5px;
+  bottom: 10px;
   height: 18px;
   transition: margin-left 0.5s; 
 }

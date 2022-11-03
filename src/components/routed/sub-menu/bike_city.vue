@@ -80,12 +80,24 @@ p {
 } 
 
 @media screen and (min-width: 320px) and (max-width: 800px)  {
-    #overlay, .rowImg {
-      flex: 1;
+    .row {
+      flex-direction: column;
+    }
+    #overlay {
+      padding: 0px;
     }
     #text { 
       font-size: 11px;
-      margin: 0 16px;
+      margin: 0 16px
+    }
+    #text a {
+      position: initial;
+    }
+    .rowImg { 
+      min-height: 23vh;
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)), 
+                          linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0));
+      -webkit-mask-size: 100% 100%; 
     }
   }
 </style>

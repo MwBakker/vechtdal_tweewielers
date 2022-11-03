@@ -33,10 +33,6 @@ export default {
 </script>
 
 <style>
-#nav-bar { 
-  min-height: 8vh;
-}
-
 #app {
   display: flex;
   flex-direction: column;

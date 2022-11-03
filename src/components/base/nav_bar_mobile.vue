@@ -7,14 +7,14 @@
             </div>
         </div>
         <div id="lines">
-            <div>
-                <img id='logo-part-2' src="../../assets/logo_part_2.png">
-                <img id='logo-part-3' :style="{ marginLeft: bikeMovement + 'px' }" src="../../assets/logo_part_3.png">
-            </div>
-            <hr id="line-yellow" />
-            <hr id="line-orange"/>
-            <hr id="line-pink" />
-            <hr id="line-purple" />
+          <div id="logo-parts-bottom">
+              <img id='logo-part-2' src="../../assets/logo_part_2_mob.png">
+              <img id='logo-part-3' src="../../assets/logo_part_3.png">
+          </div>
+          <hr id="line-yellow" />
+          <hr id="line-orange"/>
+          <hr id="line-pink" />
+          <hr id="line-purple" />
         </div>
         <ul id="ul-nav">
             <li class='li-nav' @click="this.$router.push('/')"><p>HOME</p></li>
@@ -39,20 +39,14 @@
   
 <script>
 export default {
-  name: "navBar",
-  data(){
-    return {
-      upHere: false,
-      bikeMovement: 150
-    }
-  },
+  name: "navBar"
 };
 </script>
   
 <style scoped>
   
 #nav-body {
-  background-size: 85% auto;
+  background-size: c;
   background-repeat: repeat; 
   background-image:
   linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgb(16 16 16 / 1)),
@@ -73,21 +67,22 @@ ul {
   position: relative;
 }
 #lines hr {
+  border-width: 3px;
+  border-style: solid;
   margin: 0;
 }
 #line-yellow { 
-  border: 3px solid #ff8647;
+  border: #ff8647;
 }
 #line-orange { 
-  border: 3px solid #ff5c49;
+  border: #ff5c49;
 }
 #line-pink { 
-  border: 3px solid #d61a67;
+  border: #d61a67;
 }
 #line-purple { 
-  border: 3px solid #600026;
+  border: #600026;
 }
-
 
 .li-nav, .li-nav-subbed { 
   margin: 16px 0;
@@ -106,19 +101,14 @@ ul {
   margin-bottom: 5px;
   height: 35px;
 }
-#logo-part-2 { 
+#logo-parts-bottom { 
   position: absolute;
-  left: 25%; 
-  bottom: 1px;
-  height: 22px;
-  clear: both;
+  width: 100%;
 }
-#logo-part-3 { 
-  position: absolute;
-  left: 23%; 
-  bottom: 1px;
-  height: 22px;
+#logo-part-2, #logo-part-3 { 
+  height: 23px;
 }
+
 .li-nav-subbed { 
   line-height: 31px;
 }
