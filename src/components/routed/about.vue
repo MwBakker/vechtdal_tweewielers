@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img src="../../assets/employers.jpg" alt="Joost en Michel">
+    <img src="../../assets/employers.png" alt="Joost en Michel">
     <Transition name="slide-fade-left" appear>
       <div id="overlay">
         <div id="text">

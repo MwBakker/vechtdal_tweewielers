@@ -95,7 +95,7 @@ export default {
                 stylers: [{color: '#17263c'}]
             }
         ]
-        const center = { lat: 52.5738083, lng: 6.6158062 }
+        const center = { lat: 52.5738051, lng: 6.6179949 }
         return {styles,  center }
     },
   };

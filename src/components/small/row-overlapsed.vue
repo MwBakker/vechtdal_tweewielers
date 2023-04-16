@@ -75,6 +75,7 @@
   }
   
   p { 
+    text-align: justify;
     word-break: break-word;
     white-space: normal;
   } 

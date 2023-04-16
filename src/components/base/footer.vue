@@ -9,7 +9,7 @@
     <div id="footer-content">
       <div id="site-ref">
         <div id="site-ref-text">
-          <p>Powered by: Martijn Bakker</p>
+          <p>Build and design powered by: <a id="linked-in" href="https://www.linkedin.com/in/martijn-bakker-900a8787/">Martijn Bakker</a></p>
           <p>© Vechtdal Tweewielers Hardenberg</p>
         </div>
       </div>
@@ -31,6 +31,11 @@ export default {
 }
 </script>
 <style scoped>
+
+#linked-in{
+  text-decoration: underline;
+  color: inherit;
+}
 
 #footer {
   position: relative;
@@ -76,7 +81,7 @@ export default {
 
 #site-ref-text p {
   text-align: left;
-  font-size: 11px;
+  font-size: 13px;
   margin: 4px 0;
   color: #ffffff85;
 }
@@ -86,7 +91,16 @@ export default {
 }
 .logo {
   height: 26px;
-  margin: 4px 6px;
+  margin: 12px 6px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 800px)  {
+  #site-ref-text p {
+    font-size: 10px;
+  }
+  .logo {
+    margin: 10px 6px;
+}
 }
 
 </style>

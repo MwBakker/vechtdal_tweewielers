@@ -1,6 +1,6 @@
 <template>
-  <navBarMobile v-if="windowWidth <= 800" id="nav-bar-mobile" />
-  <navBar v-if="windowWidth > 800" id='nav-bar'/>
+  <navBarMobile v-if="windowWidth <= 800" ref="navBar_mobile" />
+  <navBar v-if="windowWidth > 800" ref="navBar" />
   <div id="app-body">
     <router-view></router-view>
   </div>
@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import navBar from "@/components/base/nav_bar.vue";
-import navBarMobile from "@/components/base/nav_bar_mobile.vue";
+import navBar from "@/components/base/nav_bar/nav_bar.vue";
+import navBarMobile from "@/components/base/nav_bar/nav_bar_mobile.vue";
 import footerSection from "@/components/base/footer.vue";
 
 export default {

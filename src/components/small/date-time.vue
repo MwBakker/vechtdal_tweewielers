@@ -2,8 +2,9 @@
     <div class='date_time'>
         <div class='date'><p>{{ day }}: </p></div>
             <div class='time'>
-            <div class='time_first'><p>{{ timeFirst }}</p></div>
-                <div class='time_last'><p>{{ timeLast }}</p></div>
+                <div><p>{{ timeFirst }}</p></div>
+                <div v-if="timeMiddle !== null"><p>{{ timeMiddle }}</p></div>
+                <div><p>{{ timeLast }}</p></div>
             </div>
         </div>
 </template>
@@ -14,6 +15,7 @@ export default {
     props: {
         day: String,
         timeFirst: String,
+        timeMiddle: String,
         timeLast: String 
     }
   };

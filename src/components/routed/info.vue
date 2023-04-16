@@ -12,44 +12,51 @@
             timeFirst="08:30 - 12:30" 
             timeLast ="13:00 - 18:00" />
           <DateTime day="Donderdag"
-            timeFirst="08:30 - 12:30" 
-            timeLast ="13:00 - 21:00" />
+            timeFirst="08:30 - 12:30"
+            timeMiddle="13:00 - 18:00" 
+            timeLast ="18:30 - 21:00" />
           <DateTime day="Vrijdag"
             timeFirst="08:30 - 12:30" 
-            timeLast ="13:00 - 21:00" />
+            timeLast ="13:00 - 18:00" />
           <DateTime day="Zaterdag"
             timeFirst="08:30 - 12:30" 
-            timeLast ="13:00 - 17:00" />
+            timeLast ="13:00 - 16:00" />
         </div>
+        <h2 v-if="holidays()" id="header-alert">{{ alert }}</h2>
       </div>
     </Transition>
     <Transition name="slide-fade-left" appear>
       <div class="side-block" id="contact-form-block">
         <div id="contact-form">
           <h2>Contactformulier</h2>
-          <div class="contact-form-field">
-            <p>Uw naam</p>
-            <input v-model="name">
-          </div>
-          <div class="contact-form-field">
-            <p>Uw email adres</p>
-            <input v-model="email">
-          </div>
-          <div class="contact-form-field">
-            <p>Uw telefoonnummer (optioneel)</p>
-            <input v-model="phone">
-          </div>
-          <div class="contact-form-field">
-            <p>Onderwerp</p>
-            <input v-model="subject">
-          </div>
-          <div class="contact-form-field">
-            <p>Beschrijving</p>
-            <textarea v-model="description" cols="40" rows="5"></textarea>
-          </div>
-          <div class="contact-form-field">
-            <button>Verzenden</button>
-          </div>
+          <form class="vue-form" @submit.prevent="submit">
+            <div class="contact-form-field">
+              <p>Uw naam</p>
+              <input v-model="name">
+            </div>
+            <div class="contact-form-field">
+              <p>Uw email adres</p>
+              <input v-model="email">
+            </div>
+            <div class="contact-form-field">
+              <p>Uw telefoonnummer (optioneel)</p>
+              <input v-model="phone">
+            </div>
+            <div class="contact-form-field">
+              <p>Onderwerp</p>
+              <input v-model="subject">
+            </div>
+            <div class="contact-form-field">
+              <p>Beschrijving</p>
+              <textarea v-model="description" cols="40" rows="5"></textarea>
+            </div>
+            <div v-if="!sent" class="contact-form-field">
+              <input id="button-send" type="submit" value="Verzenden">
+            </div>
+            <div v-if="sent" class="contact-form-field">
+              <p>Uw bericht verzonden</p>
+            </div>
+            </form>
         </div>
       </div>
     </Transition>
@@ -76,10 +83,51 @@
 <script>
 import CustomMap from '../small/maps-custom';
 import DateTime from '../small/date-time';
+import axios from 'axios';
 
 export default {
   components: { CustomMap, DateTime },
   name: "infoPage",
+  data() {
+    return {
+      alert: "in de periode van 25 december t/m 2 januari zijn wij gesloten",
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      description: '',
+      sent: false,
+    };
+  },
+  methods: {
+    holidays() {
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+
+      var xmasSeasonStart = new Date(currentYear.toString() + '-12-15');
+      var xmasSeasonEnd = new Date((currentYear + 1).toString() + '-01-03');
+
+      if (currentDate >= xmasSeasonStart && currentDate <= xmasSeasonEnd) {
+          return true;
+      }         
+    },
+    submit: function() {
+      let form = {};
+      form.name =  this.name;
+      form.subject = this.subject;
+      form.email = this.email;
+      form.phone = this.phone;
+      form.message = this.description;
+      axios({
+        url: '/mail.php',
+        method: "POST",
+        data: form
+      }).then(() => {
+        this.sent = true;
+         });
+    }, 
+  },
+
 };
 </script>
 
@@ -108,6 +156,15 @@ export default {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+#header-alert { 
+  position: absolute;
+  bottom: 0;
+  font-style: italic;
+  font-size: 14px;
+  left: 5%; 
+  right: 5%;
+  width: 90%;
 }
 .contact-form-field { 
   width: 75%; 
@@ -140,6 +197,11 @@ textarea {
   border: solid 2px #e0e4e2;
   background: none;
   border-radius: 6px;
+}
+#button-send {
+  cursor: pointer;
+  width: 25%;
+  float: right;
 }
 
 #middle-column { 
@@ -184,15 +246,6 @@ h2 {
   margin: 8px 0 0 0;
 }
 
-button { 
-  height: 32px;
-  background: none;
-  color: #e0e4e2;
-  border-color: #e0e4e2;
-  border-radius: 8px;
-  float: right;
-}
-
 .slide-fade-up-enter-active, .slide-fade-left-enter-active, .slide-fade-right-enter-active {
     transition: all 1s ease;
 }
@@ -232,11 +285,29 @@ button {
     width: 92.5%;
     margin: 12px 2.5%;
   }
+  #button-send {
+    width: 100%; height: 42px;
+    float: none; 
+  }
   #top-column { 
     display: block;
   }
   #middle-column p {
     font-size: 12px;
   }
+}
+
+@media screen and (max-width: 1024px)
+{
+  #header-alert { 
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 450px) and (min-height:300px) and (max-height:800px)
+{
+  .side-block{ 
+      height: 100vh;
+    }
 }
 </style>

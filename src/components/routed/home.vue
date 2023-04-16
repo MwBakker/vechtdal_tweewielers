@@ -5,7 +5,10 @@
             <div id="overlay">
                 <div id="header-text">
                     <h1>Welkom bij Vechtdal Tweewielers</h1>
-                    <!-- <h2> - Deze website is nog in aanbouw - </h2> -->
+                    <h2>Wij zoeken extra medewerkers! Klik 
+                        <a id="jobs" @click="isMobile ? clickedMobile('/fietsen/elektrisch', 'bicycle') : clicked('/fietsen/elektrisch', this.$root.$refs.navBar.$refs.li_sub_bicycles)"> hier</a>
+                         voor meer info</h2>
+                    <h2 v-if="holidays()">{{alert}}</h2>
                 </div>
             </div>
         </Transition>
@@ -25,14 +28,14 @@
         </Transition>
     </div>
     <div id="store-items-block">
-        <CardBottomOverlay @click="this.$router.push('/fietsen/elektrisch')" class="card" imgSrc="bike-electric" title="Elektrisch" />
-        <CardBottomOverlay @click="this.$router.push('/fietsen/stad')" class="card" imgSrc="bike-city" title="Stad" />
-        <CardBottomOverlay @click="this.$router.push('/fietsen/sportief')" class="card" imgSrc="bike-sport" title="Sportief" />
-        <CardBottomOverlay @click="this.$router.push('/fietsen/bedrijfs-gerelateerd')" class="card" imgSrc="bike-business" title="Bedrijfs-gerelateerd" />
+        <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/elektrisch', 'bicycle') : clicked('/fietsen/elektrisch', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-electric" title="Elektrisch" />
+        <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/stad', 'bicycle') : clicked('/fietsen/stad', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-city" title="Stad" />
+        <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/sportief', 'bicycle') : clicked('/fietsen/sportief', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-sport" title="Sportief" />
+        <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/bedrijfs-gerelateerd', 'bicycle') : clicked('/fietsen/bedrijfs-gerelateerd', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-business" title="Bedrijfs-gerelateerd" />
     </div>
     <div id="fixed-bg">
         <div id="fixed-bg-text-block-overlay">
-            <div class="info-text">
+            <div class="info-text" @click="isMobile ? clickedMobile('/onderhoud_en_reparatie', 'maintenance') : clicked('/onderhoud_en_reparatie',  this.$root.$refs.navBar.$refs.li_maintenance)">
                 <h2>Onderhoud en Reparatie</h2>
                 <br class="breakline">
                 <p>Zorgeloos blijven fietsen? Uw fiets is bij ons in goede handen. Wij zijn erkende monteurs met een ruime beschikbaarheid aan onderdelen.</p>
@@ -41,11 +44,11 @@
     </div>
     <div id="rental-info">
         <img src="../../assets/bike-rental.jpg" alt="Verhuur">
-        <div id="vecht-info-text-block">
-            <div class="info-text">
+        <div id="vecht-info-text-block"> 
+            <div class="info-text" @click="isMobile ? clickedMobile('/verhuur', 'rental') : clicked('/verhuur', this.$root.$refs.navBar.$refs.li_bike)">
                 <h2>Verhuur</h2>
                 <br class="breakline">
-                <p>Mocht u de Vechtdal per fiets willen ontdekken, echter beschikt u niet zelf over een fiets? Geen probleem: u kunt bij ons een fiets huren.</p>
+                <p>Mocht u het Vechtdal per fiets willen ontdekken, echter beschikt u niet zelf over een fiets? Geen probleem: u kunt bij ons een fiets huren.</p>
             </div>
         </div>
     </div>
@@ -54,12 +57,37 @@
 <script>
     import CardBottomOverlay from '../small/card-bottom-overlay.vue';
     export default {
-    components: { CardBottomOverlay },
+        components: { CardBottomOverlay },
         name: 'home-page',
+        data() {
+            return {
+                alert: "in de periode van 25 december t/m 2 januari zijn wij gesloten",
+                isMobile: window.innerWidth <= 800,
+            }
+        },
         props: {
             msg: String
-        }
-    }
+        },
+        methods: {
+            clicked(route, dynamic) {
+                this.$root.$refs.navBar.clickedInPage(route, dynamic);
+            },
+            clickedMobile(route, name) {
+                this.$root.$refs.navBar_mobile.clicked(route, name);
+            },
+            holidays() {
+                var currentDate = new Date();
+                var currentYear = currentDate.getFullYear();
+
+                var xmasSeasonStart = new Date(currentYear.toString() + '-12-15');
+                var xmasSeasonEnd = new Date((currentYear + 1).toString() + '-01-03');
+
+                if (currentDate >= xmasSeasonStart && currentDate <= xmasSeasonEnd) {
+                    return true;
+                }         
+            }
+        },
+    };
 </script>
 
 <style scoped>
@@ -70,16 +98,13 @@
 
 #header-text {
     text-align: left;
-    display: flex;
-    flex-direction: row;
+    margin-left: 4%;
 }
 #header-text h1 { 
-    margin-left: 4%;
-    flex: 2
+    font-size: 36px;
 }
 #header-text h2 { 
-    color:aliceblue;
-    flex: 1
+    font-style: italic;
 }
 
 #home-img img {
@@ -90,13 +115,13 @@
 }
 #overlay {
     position: absolute;
-    width: 100%; height: 19%;
+    width: 100%;
     bottom: 0;
     right: 0;
     background-color: rgb(18 18 18 / 0.85);
 }
 #vecht-info, #rental-info {
-    height: 36vh;
+    height: 35vh;
     overflow: hidden;
 }
 #vecht-info { 
@@ -109,6 +134,7 @@
     float: left;
 }
 .info-text { 
+    cursor: pointer;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -124,19 +150,25 @@
     text-align: left;
 }
 #vecht-info img, #rental-info img { 
-    width: 40%; height: 100%;
+    height: 100%;
+    width: 40%;
     float: left;
-    object-fit: cover;
+    object-fit: fill;
 }
 
-#store-items-block { 
-    height: 42vh;
+#jobs {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#store-items-block {
+    margin-top: 12.5px; 
     overflow: hidden;
 }
 .card { 
     cursor: pointer;
     width: 23%;
-    margin: 48px 1% 32px 1%;
+    margin: 0 1%;
 }
 
 #fixed-bg { 
@@ -208,6 +240,9 @@ h1 {
 }
 
 @media screen and (min-width: 320px) and (max-width: 800px)  {
+    #header-text h1 { 
+        font-size: 21px;
+    }
     h1 { 
         font-size: 21px;
     }
@@ -216,9 +251,6 @@ h1 {
     }
     .info-text p { 
         font-size: 11.5px;
-    }
-    #overlay { 
-        height: 12.5%;
     }
     .info-text img { 
         font-size: 11.5px;
@@ -236,5 +268,24 @@ h1 {
     .breakline { 
         display: none;
     }
+    #vecht-info img, #rental-info img { 
+        object-fit: cover;
+    }
 }
+
+@media screen and (min-width: 450px) and (min-height:300px) and (max-height:800px)
+{
+    #fixed-bg-text-block-overlay { 
+        height: 32vh;
+    }
+    #fixed-bg { 
+        height: 96vh;
+    }
+    #vecht-info, #rental-info { 
+        height: 70vh;
+    }
+    .card {
+        height: 62vh;
+    }
+ }
 </style>
