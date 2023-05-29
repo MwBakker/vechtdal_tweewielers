@@ -162,22 +162,29 @@
         transform: translateX(80%);
         opacity: 0;
     }
-  
+
     @media screen and (min-width: 320px) and (max-width: 800px)  {
-      #background-rental { 
-        height: 100%;
-        background-size: cover;
-      }
-      .block {
-        margin: 7.5% 5%;
-        border: 2px solid #600026;
-        width: 90%; 
-        height: 25%;
-      }
-      .block h1 {
-        font-size: 16px;
-        margin: 0;
-      }
+        .block-row {
+            display: block;
+        }
+        .block, .block-employee, .block-zzp {
+            height: 40%;
+        }
+        .block-title {
+            padding: 16px;
+        }
+        h1 {
+            font-size: 18px;
+        }
+        h2 {
+            font-size: 16px;
+        }
+        .content {
+            padding: 0 16px;
+        }
+        p {
+            font-size: 11px;
+        }
     }
   
     @media screen and (min-width: 450px) and (min-height:300px) and (max-height:800px)

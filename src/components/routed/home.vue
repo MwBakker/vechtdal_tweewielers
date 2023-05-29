@@ -6,7 +6,7 @@
                 <div id="header-text">
                     <h1>Welkom bij Vechtdal Tweewielers</h1>
                     <h2>Wij zoeken extra medewerkers! Klik 
-                        <a id="jobs" @click="isMobile ? clickedMobile('/fietsen/elektrisch', 'bicycle') : clicked('/fietsen/elektrisch', this.$root.$refs.navBar.$refs.li_sub_bicycles)"> hier</a>
+                        <a id="jobs" @click="isMobile ? clickedMobile('/vacatures', 'jobs') : clicked('/vacatures', this.$root.$refs.navBar.$refs.li_sub_bicycles)"> hier</a>
                          voor meer info</h2>
                     <h2 v-if="holidays()">{{alert}}</h2>
                 </div>
@@ -240,6 +240,9 @@ h1 {
 }
 
 @media screen and (min-width: 320px) and (max-width: 800px)  {
+    #home-img img {
+        height: 45vh;
+    }
     #header-text h1 { 
         font-size: 21px;
     }

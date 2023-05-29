@@ -24,9 +24,8 @@
           <li ref="li_sub_accessories" class='li-nav-subbed' @mouseover="moveToItem($event)" @mouseleave="moveBack()"><p id="li-accessories">ACCESOIRES</p>
             <div class="sub-menu" :style="{ left: leftPosAccessories+'px', 
                                             backgroundImage: 'linear-gradient(to right, rgb(18 18 18 / 1), rgb(18 18 18 / 0.99), rgb(18 18 18 / 0.8), rgb(18 18 18 / 0.5), rgb(18 18 18 / 0)), url(' + 
-                                            require('../../../assets/bike-'+subMenuImgSrc+'.jpg') + ')' } ">
+                                            require('../../../assets/'+accSubMenuImgSrc+'.jpg') + ')' } ">
               <ul>
-                <li ref="li_accessories" @click="clicked('/accessoires/fietsendragers', $event)" @mouseover="moveToItem($event)"><div  class='sub-menu-item'><img src="../../../assets/icons/bike-electric.png"><p>FIETSENDRAGERS</p></div></li>
                 <li ref="li_accessories" @click="clicked('/accessoires/fietsendragers', $event)" @mouseover="moveToItem($event)"><div  class='sub-menu-item'><img src="../../../assets/icons/bike-electric.png"><p>FIETSENDRAGERS</p></div></li>
               </ul>
             </div>
@@ -69,7 +68,8 @@ export default {
       lastClickedPos: 0,
       leftPosBicycles: 0,
       leftPosAccessories: 0,
-      subMenuImgSrc: 'electric'
+      subMenuImgSrc: 'electric',
+      accSubMenuImgSrc: 'movanext'
     }
   },
   methods: {
@@ -294,6 +294,9 @@ p {
   #li-info { 
     display: none;
   }
+  #li-accessories {
+    margin-top: -10%;
+  }
   /* .sub-menu-item img { 
     height: 24px;
     margin: 14px 6% 18px 3%;
@@ -318,6 +321,9 @@ p {
   }
   #li-info { 
     display: block;
+  }
+  #li-accessories {
+    margin-top: -10%;
   }
   /* .sub-menu-item img { 
     height: 24px;

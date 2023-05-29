@@ -25,30 +25,42 @@
           <li class='li-nav-subbed'>
             <div class='li-select'>
               <img :style="{ opacity: selected == 'bicycle' ? 1 : 0}" :src="gearIcon"/>
-                <p id="sub-title" @click="subMenuAppearance()">FIETSEN</p>
+                <p id="sub-title" @click="bikeSubMenuAppearance()">FIETSEN</p>
               <img :style="{ opacity: selected == 'bicycle' ? 1 : 0}" :src="gearIcon"/>
             </div>
-          <div class="sub-menu" :style="{ visibility: visible, opacity: opac }">
-            <ul>
-              <li @click="[clicked('/fietsen/elektrisch', 'bicycle'), subMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike-electric.png"><p>ELEKTRISCH</p></div></li>
-              <li @click="[clicked('/fietsen/stad', 'bicycle'), subMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike.png"><p>STAD</p></div></li>
-              <li @click="[clicked('/fietsen/sportief', 'bicycle'), subMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike-sport.png"><p>SPORTIEF</p></div></li>
-              <li @click="[clicked('/fietsen/bedrijfs-gerelateerd', 'bicycle'), subMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike.png"><p>BEDRIJFSGERELATEERD</p></div></li>
-            </ul>
-          </div>
-        </li>
+            <div class="sub-menu" :style="{ visibility: visibleBikeSub, opacity: opacBikeSub }">
+              <ul>
+                <li @click="[clicked('/fietsen/elektrisch', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike-electric.png"><p>ELEKTRISCH</p></div></li>
+                <li @click="[clicked('/fietsen/stad', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike.png"><p>STAD</p></div></li>
+                <li @click="[clicked('/fietsen/sportief', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike-sport.png"><p>SPORTIEF</p></div></li>
+                <li @click="[clicked('/fietsen/bedrijfs-gerelateerd', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike.png"><p>BEDRIJFSGERELATEERD</p></div></li>
+              </ul>
+            </div>
+          </li>
+          <li ref="li_lease" class='li-nav' @click="clicked('/lease', 'lease')">
+            <div class='li-select'>
+              <img :style="{ opacity: selected == 'lease' ? 1 : 0}" :src="gearIcon"/>
+                <p>FIETSPLAN</p>
+              <img :style="{ opacity: selected == 'lease' ? 1 : 0}" :src="gearIcon"/>
+            </div>
+          </li>
+          <li class='li-nav-subbed'>
+            <div class='li-select'>
+              <img :style="{ opacity: selected == 'accosseries' ? 1 : 0}" :src="gearIcon"/>
+                <p id="sub-title" @click="AccSubMenuAppearance()">ACCESSOIRES</p>
+              <img :style="{ opacity: selected == 'accosseries' ? 1 : 0}" :src="gearIcon"/>
+            </div>
+            <div class="sub-menu" id="sub-menu-acc" :style="{ visibility: visibleAccSub, opacity: opacAccSub }">
+              <ul>
+                <li @click="[clicked('/accessoires/fietsendragers', 'accosseries'), AccSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike-electric.png"><p>FIETSENDRAGERS</p></div></li>
+              </ul>
+            </div>
+          </li>
           <li class='li-nav' @click="clicked('/onderhoud_en_reparatie', 'maintenance')">
             <div class='li-select'>
               <img :style="{ opacity: selected == 'maintenance' ? 1 : 0}" :src="gearIcon"/>
-                <p>ONDERHOUD & REPARATIE</p>
+                <p>REPARATIE</p>
               <img :style="{ opacity: selected == 'maintenance' ? 1 : 0}" :src="gearIcon"/>
-            </div>
-          </li>
-          <li class='li-nav' @click="clicked('/verhuur', 'rental')">
-            <div class='li-select'>
-              <img :style="{ opacity: selected == 'rental' ? 1 : 0}" :src="gearIcon"/>
-              <p>VERHUUR</p>
-              <img :style="{ opacity: selected == 'rental' ? 1 : 0}" :src="gearIcon"/>
             </div>
           </li>
           <li class='li-nav' @click="clicked('/over', 'about')" >
@@ -77,8 +89,10 @@ export default {
     return {
       gearIcon: require('../../../assets/icons/gear.png'),
       selected: 'home',
-      opac: 0,
-      visible: "hidden",
+      opacBikeSub: 0,
+      opacAccSub: 0,
+      visibleBikeSub: "hidden",
+      visibleAccSub: "hidden"
     }
   },
   methods: {
@@ -87,13 +101,22 @@ export default {
       this.$router.push(route);
       window.scrollTo(0,0);
     },
-    subMenuAppearance() { 
-      if (this.opac == 0) { 
-          this.opac = 1; 
-          this.visible = "visible";
+    bikeSubMenuAppearance() { 
+      if (this.opacBikeSub == 0) { 
+          this.opacBikeSub = 1; 
+          this.visibleBikeSub = "visible";
         } else { 
-          this.opac = 0; 
-          this.visible = "hidden";
+          this.opacBikeSub = 0; 
+          this.visibleBikeSub = "hidden";
+        }
+    },
+    AccSubMenuAppearance() { 
+      if (this.opacAccSub == 0) { 
+          this.opacAccSub = 1; 
+          this.visibleAccSub = "visible";
+        } else { 
+          this.opacAccSub = 0; 
+          this.visibleAccSub = "hidden";
         }
     },
   },
@@ -137,13 +160,11 @@ ul {
 }
 
 .li-select {
-  overflow: hidden;
-  margin: 0 auto;
+  display: flex;
 }
 
 .li-select img {
   height : 19px;
-  float: left;
   margin: 0 5%;
   transition: opacity 0.5s;
 }
@@ -186,6 +207,10 @@ ul {
   transition: visibility 0s, opacity 0.25s linear;
   border-left: 2px solid #600026;
   border-bottom: 2px solid #600026;
+}
+#sub-menu-acc {
+  background: rgba(0, 0, 0, 0.85);
+
 }
 .sub-menu ul {
   padding: 0 6px;
