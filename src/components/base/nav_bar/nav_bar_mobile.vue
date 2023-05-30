@@ -33,6 +33,7 @@
                 <li @click="[clicked('/fietsen/elektrisch', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike-electric.png"><p>ELEKTRISCH</p></div></li>
                 <li @click="[clicked('/fietsen/stad', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike.png"><p>STAD</p></div></li>
                 <li @click="[clicked('/fietsen/sportief', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike-sport.png"><p>SPORTIEF</p></div></li>
+                <li @click="[clicked('/fietsen/bak', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike-cargo.png"><p>BAKFIETS</p></div></li>
                 <li @click="[clicked('/fietsen/bedrijfs-gerelateerd', 'bicycle'), bikeSubMenuAppearance()]"><div class='sub-menu-item'><img src="../../../assets/icons/bike.png"><p>BEDRIJFSGERELATEERD</p></div></li>
               </ul>
             </div>
@@ -201,6 +202,7 @@ ul {
   background: linear-gradient(to right, rgb(18 18 18 / 1), rgb(18 18 18 / 0.99), rgb(18 18 18 / 0.8), rgb(18 18 18 / 0.5), rgb(18 18 18 / 0)), url('../../../assets/bike-city.jpg');
   background-position: center;
   background-size: 100% 100%;
+  background-repeat: no-repeat;
   border-radius: 0 0 0 60px;
   visibility: hidden;
   opacity: 0;

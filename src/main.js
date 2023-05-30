@@ -6,6 +6,7 @@ import Home from '@/components/routed/home';
     import BikeElectric from '@/components/routed/bicycles/bike_electric';
     import BikeCity from '@/components/routed/bicycles/bike_city';
     import BikeSport from '@/components/routed/bicycles/bike_sport';
+    import BikeCargo from '@/components/routed/bicycles/bike_cargo';
     import BikeCompany from '@/components/routed/bicycles/bike_company';
 import Lease from '@/components/routed/lease';
 import BicycleCarrier from '@/components/routed/accessories/bicycle_carrier';
@@ -36,6 +37,11 @@ const routes = [
             path: '/fietsen/sportief',
             name: 'Bike_sport',
             component: BikeSport
+        },
+        {
+            path: '/fietsen/bak',
+            name: 'Bike_cargo',
+            component: BikeCargo
         },
         {
             path: '/fietsen/bedrijfs-gerelateerd',

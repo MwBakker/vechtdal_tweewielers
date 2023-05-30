@@ -27,6 +27,13 @@
                         frames blijft evolueren met het gebruik van hydroforming en butted buizen. Door de computer gegenereerde grafische ontwerpen brengen een 
                         revolutie teweeg in het ontwerp en het uiterlijk van deze fietsen.">
   </rowOverlapsed>
+  <rowOverlapsed class="row" link="https://www.union.nl/fietsen/e-bikes/" title="Union" imgSrc="union-e-bike.jpg"
+                  text="Waarom zij als geen ander weten hoe de ideale elektrische fiets eruit ziet? Omdat zij hen al meer dan honderd jaar maken. Sinds 1904, om precies te zijn. 
+                        Hun eerste rijwiel, gemaakt door de drie gebroeders Van den Berg, was meteen raak. Er was één probleem. Back in the days kon lang niet iedereen fietsen. 
+                        Dus kwamen de slimme rakkers op een idee: fietsles geven. En zo geschiedde. Briljante zet, zo bleek. Ze overleefden zware crisis- en oorlogsjaren en in 
+                        1966 rolde hun miljoenste fiets van de band. En ondanks een allesverwoestende brand in 1976, is Union altijd hét stadsfietsenmerk van Nederland gebleven. 
+                        Ga maar eens bij het station kijken. Eén en al Union. Nou, bijna dan.">
+  </rowOverlapsed>
 </template> 
 
 <script>

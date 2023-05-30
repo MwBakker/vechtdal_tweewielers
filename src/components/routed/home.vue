@@ -31,6 +31,7 @@
         <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/elektrisch', 'bicycle') : clicked('/fietsen/elektrisch', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-electric" title="Elektrisch" />
         <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/stad', 'bicycle') : clicked('/fietsen/stad', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-city" title="Stad" />
         <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/sportief', 'bicycle') : clicked('/fietsen/sportief', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-sport" title="Sportief" />
+        <!-- <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/bak', 'bicycle') : clicked('/fietsen/bak', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-cargo" title="Bakfiets" /> -->
         <CardBottomOverlay @click="isMobile ? clickedMobile('/fietsen/bedrijfs-gerelateerd', 'bicycle') : clicked('/fietsen/bedrijfs-gerelateerd', this.$root.$refs.navBar.$refs.li_sub_bicycles)" class="card" imgSrc="bike-business" title="Bedrijfs-gerelateerd" />
     </div>
     <div id="fixed-bg">
@@ -163,7 +164,6 @@
 
 #store-items-block {
     margin-top: 12.5px; 
-    overflow: hidden;
 }
 .card { 
     cursor: pointer;
@@ -197,6 +197,7 @@
 }
 
 #rental-info { 
+    margin-top: 12.5px;
     border-radius: 36px 80px 0px 80px;
 }
 

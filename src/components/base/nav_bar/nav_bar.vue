@@ -16,6 +16,7 @@
                 <li @click="clicked('/fietsen/elektrisch', $event)" @mouseover="changePic('electric')"><div  class='sub-menu-item'><img src="../../../assets/icons/bike-electric.png"><p>ELEKTRISCH</p></div></li>
                 <li @click="clicked('/fietsen/stad', $event)" @mouseover="changePic('city')"><div class='sub-menu-item'><img src="../../../assets/icons/bike.png"><p>STAD</p></div></li>
                 <li @click="clicked('/fietsen/sportief', $event)" @mouseover="changePic('sport')"><div class='sub-menu-item'><img src="../../../assets/icons/bike-sport.png"><p>SPORTIEF</p></div></li>
+                <li @click="clicked('/fietsen/bak', $event)" @mouseover="changePic('cargo')"><div class='sub-menu-item'><img src="../../../assets/icons/bike-cargo.png"><p>BAKFIETS</p></div></li>
                 <li @click="clicked('/fietsen/bedrijfs-gerelateerd', $event)" @mouseover="changePic('business')"><div class='sub-menu-item'><img src="../../../assets/icons/bike.png"><p>BEDRIJFSGERELATEERD</p></div></li>
               </ul>
             </div>
@@ -197,6 +198,7 @@ li {
   right: 0;
   background-position: center;
   background-size: 100% auto;
+  background-repeat: no-repeat;
   border-radius: 0 0 0 60px;
   visibility: hidden;
   opacity: 0;
